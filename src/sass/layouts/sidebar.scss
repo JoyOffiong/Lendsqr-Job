@@ -1,0 +1,32 @@
+.sidebar{
+    width: 20%;
+    padding: 35px;
+    font-size: 14px;
+    background-color: #fff;
+    color: $dashboardTextColor;
+    p, span{
+        display: flex;
+        gap: 10px;
+    }
+    
+    img{
+        width: 15px;
+    }
+}
+
+.organization{
+    padding-bottom: 35px;
+}
+.section{
+    padding-top: 40px;
+h4{
+padding-bottom: 15px;
+}
+p{
+    padding-bottom: 30px;
+   
+}
+
+}
+
+

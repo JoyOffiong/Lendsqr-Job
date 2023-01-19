@@ -1,0 +1,89 @@
+
+.dashboardbody{
+    margin: 40px;
+    width: 80%;
+    color: $dashboardTextColor;
+}
+
+// usersInfo
+.userInformation{
+    .UserTitle{
+        margin-bottom: 40px;
+    }
+    .userInfoCard{
+        
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    .card{
+        background-color: #fff;
+        width:20%;
+        border-radius: 10px;
+        padding: 10px 20px; 
+        img{
+            width: 40px;
+            
+        }
+        div{
+         font-size: 15px;
+         font-weight: bold;
+         margin-top: 5px;
+         h3{
+            margin-top: 10px;
+            font-weight: bold;
+         }
+        }
+
+    }
+    }
+}
+
+// UserDetails
+
+.userDetails{
+    margin-top: 70px;
+    background-color: #fff;
+    padding: 10px;
+    border-radius: 10px;
+
+    table{
+        width: 100%;
+    }
+
+    .tableHeadingWrap{
+        display: flex;
+        justify-content: space-between;
+      th{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        gap: 5px;
+        width: 15%;
+        font-size: 12px;
+        padding-top: 30px;
+
+        img{
+            width: 12px;
+            height: 12px;
+        }
+      }
+       
+    }
+}
+
+
+.details{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid rgba(33, 63, 125, 0.1);
+
+        
+    td{
+        width: 15%;
+        font-size: 10px;
+        margin: 5px 0;
+        padding: 5px;
+        border: 2px solid red;
+
+    }}
