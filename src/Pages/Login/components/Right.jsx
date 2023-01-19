@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 function Right() {
   return (
@@ -18,7 +19,8 @@ function Right() {
 </div>
  
 <div className='buttonWrap'>
-<button className='button'>LOG IN</button>
+<Link className='button' to={'/dashboard'}>LOG IN</Link>
+{/* <button className='button'>LOG IN</button> */}
 </div>
   
 

@@ -1,6 +1,6 @@
 import React from 'react';
 import UsersInfo from './UsersInfo';
-import UsersDetails from './UsersDetails'
+import UsersDetails from '../../Users/UsersDetails'
 
 export default function DashboardBody() {
   return (

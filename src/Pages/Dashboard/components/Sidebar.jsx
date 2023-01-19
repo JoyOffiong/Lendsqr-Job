@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import briefcase from '../../../assets/briefcase 1.png'
 import dashboard from '../../../assets/dashboard.png'
 import users from '../../../assets/users.png'
@@ -34,7 +35,8 @@ export default function Sidebar() {
       <div className="section">
       <h4>CUSTOMERS</h4>
 
-      <p> <img src={users} alt=""/> <span>Users</span> </p> 
+      <p> <img src={users} alt=""/>
+      <Link  to={'/users'}>Users</Link></p>
       <p> <img src={Guarantors} alt=""/> <span>Guarantors</span> </p> 
       <p> <img src={loans} alt=""/> <span>Loans</span> </p> 
       <p> <img src={decision} alt=""/> <span>Decision Models</span> </p> 

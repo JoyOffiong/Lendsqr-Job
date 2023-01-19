@@ -5,9 +5,9 @@ import {useState, useEffect} from "react";
 import Loader from "./Loader";
 import moment from "moment/moment";
 import {BiDotsVertical} from 'react-icons/bi'
-// import Moment from "react-moment";
 
 export default function UsersDashboard() {
+  
   const [infos, setInfos] = useState([]);
   const [loading, setLoading]= useState(true);
   const [showOptions, setShowOptions]= useState(true)

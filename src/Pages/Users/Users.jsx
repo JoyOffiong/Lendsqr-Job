@@ -2,7 +2,7 @@ import React from 'react'
 import Header from '../../Components/Header'
 import Sidebar from '../Dashboard/components/Sidebar'
 import UsersInfo from '../Dashboard/components/UsersInfo'
-import UsersDashboard from './userDashboard'
+import UsersDetails from './UsersDetails'
 
 function Users() {
   return (
@@ -16,7 +16,7 @@ function Users() {
 
         <div className='dashboardbody'>
         <UsersInfo/>
-        <UsersDashboard/>
+        <UsersDetails/>
     </div>
         </div>
     </div>

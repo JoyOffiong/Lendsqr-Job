@@ -1,6 +1,6 @@
 import React from 'react'
-import karma from '../../../assets/karma.png'
-import whitelist from '../../../assets/whitelist.png'
+import karma from '../../assets/karma.png'
+import whitelist from '../../assets/whitelist.png'
 import {BsEye} from 'react-icons/bs'
 
 function ViewDetailsModal() {
