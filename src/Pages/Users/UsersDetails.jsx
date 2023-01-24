@@ -6,6 +6,8 @@ import Loader from "../Dashboard/components/Loader";
 import moment from "moment/moment";
 import { BiDotsVertical } from "react-icons/bi";
 import ViewDetailsModal from "./ViewDetailsModal";
+
+import { usePagination, DOTS } from './usePagination';
 // import Moment from "react-moment";
 
 export default function UsersDetails() {
@@ -71,8 +73,9 @@ export default function UsersDetails() {
               {infos.map((info, id) => {
                 const { orgName, email, userName, phoneNumber, createdAt} = info;
 
-                infos.filter((info)=>{id===info.id? (<ViewDetailsModal />) : null
+                infos.filter((info)=>{id === info.id? (<ViewDetailsModal />) : null
                 })
+
                 return (
                   <tr className="details" key={id}>
                     <td>{orgName}</td>
@@ -84,6 +87,8 @@ export default function UsersDetails() {
                     </td>
                     <td className="status"> Inactive</td>
                     <BiDotsVertical onClick={()=>{options(id)}}/>
+
+                    <ViewDetailsModal/>
                      {/* {showDetails ? ( 
                      null
                      ) : (

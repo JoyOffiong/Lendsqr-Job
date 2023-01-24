@@ -1,6 +1,9 @@
 .viewDetails{
     bottom: -10px;
-
+position: absolute;
+top: 15px;
+z-index: 10;
+right: 20px;
     padding: 5px;
     background-color: aliceblue;
     border: 1px solid rgba(84, 95, 125, 0.04);

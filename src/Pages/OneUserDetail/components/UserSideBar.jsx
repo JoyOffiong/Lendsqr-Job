@@ -1,33 +1,11 @@
-import React from "react";
-import { Link } from "react-router-dom";
-import briefcase from '../../../assets/briefcase 1.png'
-import dashboard from '../../../assets/dashboard.png'
-import users from '../../../assets/users.png'
-import coins from '../../../assets/coins.png'
-import preferences from '../../../assets/preferences.png'
-import decision from '../../../assets/decision.png'
-import feesandpricing from '../../../assets/feesandpricing.png'
-import Guarantors from '../../../assets/Guarantors.png'
-import karma from '../../../assets/karma.png'
-import loanRequest from '../../../assets/loanRequest.png'
-import loans from '../../../assets/loans.png'
-import report from '../../../assets/report.png'
-import savings from '../../../assets/savings.png'
-import savingsProducts from '../../../assets/savingsProducts.png'
-import services from '../../../assets/services.png'
-import audit from '../../../assets/audit (1).png'
-import settlement from '../../../assets/settlement.png'
-import transactions from '../../../assets/transactions.png'
-import whiteList from '../../../assets/audit (9).png'
+import React from 'react'
 
-
-
-export default function Sidebar() {
+function UserSideBar() {
   return (
     <div className="sidebar">
 
       
-<p> <img src={briefcase} alt="" /> <span className="organization">Switch Organization </span> </p>      
+<p><img src={briefcase} alt="" /> <span className="organization">Switch Organization </span> </p>      
        <p> <img src={dashboard} alt=""/> <span>Dashboard</span> </p>      
        
     
@@ -44,8 +22,6 @@ export default function Sidebar() {
       <p> <img src={loanRequest} alt=""/> <span>Loan Request</span> </p> 
       <p> <img src={whiteList} alt=""/> <span>White List</span> </p> 
       <span> <img src={karma} alt=""/> <span>Karma</span> </span> 
-
-      <Link to={'/aUserDetail'}>OneUserDetail</Link>
       </div>
 
       <div className="section">
@@ -66,8 +42,15 @@ export default function Sidebar() {
         <p> <img src={preferences} alt=""/> <span>Preferences</span> </p> 
         <p> <img src={feesandpricing} alt=""/> <span>Fees and Pricing</span> </p> 
         <p> <img src={audit} alt=""/> <span>Audit Logs</span> </p> 
+        <p> <img src={audit} alt=""/> <span>System Messages</span> </p> 
 
+       </div>
+
+       <div className='section'>
+        <p>LogOut</p>
        </div>
     </div>
   );
 }
+
+export default UserSideBar

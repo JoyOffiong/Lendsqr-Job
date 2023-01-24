@@ -1,5 +1,5 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+import Form from './Form'
 
 function Right() {
   return (
@@ -9,20 +9,7 @@ function Right() {
         <p>Enter Details to Login</p>
     </div>
 
-    <form>
-       <input type="text" placeholder='Username'/>
-       <input type="email" placeholder='Email Address' />
-    </form>
-
-<div className='password'>
-<a href="">FORGOT PASSWORD</a> 
-</div>
- 
-<div className='buttonWrap'>
-<Link className='button' to={'/dashboard'}>LOG IN</Link>
-{/* <button className='button'>LOG IN</button> */}
-</div>
-  
+  <Form/>
 
 </div>
   )
