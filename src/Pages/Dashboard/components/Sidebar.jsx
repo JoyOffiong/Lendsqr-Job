@@ -28,7 +28,7 @@ export default function Sidebar() {
 
       
 <p> <img src={briefcase} alt="" /> <span className="organization">Switch Organization </span> </p>      
-       <p> <img src={dashboard} alt=""/> <span>Dashboard</span> </p>      
+       <p> <img src={dashboard} alt=""/> <Link to={'/dashboard'}> Dashboard</Link> </p>      
        
     
 

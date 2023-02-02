@@ -2,7 +2,10 @@ import React from 'react'
 
 function OneUsersInfo() {
   return (
-    <div>OneUsersInfo</div>
+    <div>
+      
+
+    </div>
   )
 }
 

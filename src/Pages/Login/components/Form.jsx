@@ -1,7 +1,7 @@
 import React from 'react';
 import { Formik } from 'formik';
 import validationSchema from "./validationSchema";
-import { useNavigate , Link} from "react-router-dom";
+import { useNavigate} from "react-router-dom";
 
  function Form() {
 
@@ -55,9 +55,9 @@ import { useNavigate , Link} from "react-router-dom";
          <div className="buttonWrap">
 
          
-           <Link to={'/dashboard'} className="button" type="submit" disabled={isSubmitting}>
+           <button className="button" type="submit" disabled={isSubmitting}>
              LOG IN
-           </Link>
+           </button>
          </div>
        
        </form>
