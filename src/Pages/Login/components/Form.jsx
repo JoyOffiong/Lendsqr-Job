@@ -38,7 +38,10 @@ import { useNavigate} from "react-router-dom";
            onChange={handleChange}
            value={values.email}
          />
+         <div style={{paddingBottom:"20px", color:"red"}}>
          {errors.email && touched.email && errors.email}
+         </div>
+        
          <input
            type="password"
            name="password"
@@ -46,8 +49,11 @@ import { useNavigate} from "react-router-dom";
            placeholder="Password"
            value={values.password}
          />
+         <div style={{color:"red"}}>
          {errors.password && touched.password && errors.password}
-
+         </div>
+        
+        
          <div className="password">
            <a href="">FORGOT PASSWORD</a>
          </div>

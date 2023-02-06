@@ -16,35 +16,12 @@ export default function UsersDetails() {
   const [infos, setInfos] = useState([]);
   const [loading, setLoading] = useState(true);
   const [showDetails, setShowDetails] = useState(true);
-  const [currentItems, setCurrentItems] = useState([])
-  const [itemsPerPage, setItemsPerPage]= useState(10)
 
-  // const [currentPage, setCurrentPage] = useState(1);
-  // const [postsPerPage, setPostsPerPage] = useState(10);
+  const [currentItems, setCurrentItems] = useState([]);
+  const [itemsPerPage, setItemsPerPage] = useState(10);
+  const [selectedPage, setSelectedPage] = useState(1);
 
-  // const [pageCount, setPageCount] = useState(0);
   const [itemOffset, setItemOffset] = useState(0);
-
-  // setItemOffset((pageCount-1)*itemsPerPage)
-  useEffect(() => {
-    
-    const endOffset = itemOffset + itemsPerPage;
-    setCurrentItems(infos.slice(itemOffset, endOffset));
- 
-  }, [itemOffset])
-  const pageCount = Math.ceil(infos.length / itemsPerPage);
- 
-  
-  const handlePageClick = (event) => {
-    const newOffset = (event.selected * itemsPerPage) % infos.length;
-    setItemOffset(newOffset);
-
-    alert ('chidi is a goat')
-  };
-
-// const handleItemsPerPage=(Value)=>{
-//   setItemsPerPage(Value)
-// }
 
   async function fetchInfo() {
     const res = await axios.get(
@@ -53,28 +30,50 @@ export default function UsersDetails() {
 
     let response = res.data;
     setInfos(response);
+    updateCurrentItems(response);
     setLoading(false);
-    console.log(response);
+  }
+
+//   Here we are updating the current set of items rendered on the page 
+  function updateCurrentItems(r) {
+    const endOffset = itemOffset + itemsPerPage;   // The last item here is equal to first item + number of items on a page
+    setCurrentItems(r.slice(itemOffset, endOffset));  // here we are setting the currentItems to the pack of items from 0 to the endoffset
+    console.log({endOffset, itemOffset, itemsPerPage})
   }
 
   useEffect(() => {
     fetchInfo();
   }, []);
 
-  const options = () => {
-    setShowDetails(!showDetails);
-    console.log("worled");
+  const handleItemsPerPage = (e) => {
+    setItemsPerPage(parseInt(e)); // here we are simply handling the number of items that show at a time, onchangeof the select
   };
 
- const handleItemsPerPage =(e)=>{
-    setItemsPerPage(e.target.value)
-    alert('you working?')
- }
-  //get current post
+  const pageCount = Math.ceil(infos.length / itemsPerPage);  //   here, we are calculating the number of pages to be generated. This is based the length of the array divided by items showing at a time.
 
-  // const indexOfLastPost = currentPage + postsPerPage;
-  // const indexOfFirstPost = indexOfLastPost - postsPerPage;
-  // const CurrentPost = infos.slice(indexOfFirstPost, indexOfLastPost);
+
+// The function below take care of the change in page number. When you click on 5, the set of numbers for that page will show
+  const handlePageClick = (event) => {
+    setSelectedPage(event.selected);
+    // below, newoffset is equated to the remainder of (page number you have selected * itemsPerPage) 
+    const newOffset = (selectedPage * itemsPerPage) % infos.length;
+    setItemOffset(newOffset); //we will set itemsoffset to newoffset
+    updateCurrentItems(infos)
+  };
+
+  const options = () => {
+    setShowDetails(!showDetails);
+  };
+
+  useEffect(() => {
+    updateCurrentItems(infos); //for everytime we have a change of currentItems, the page reloads.
+  }, [itemsPerPage]);
+
+  //   handle selected page change
+//   useEffect(() => {
+//     const newOffset = (selectedPage * itemsPerPage) % infos.length;
+//     setItemOffset(newOffset);
+//   }, [selectedPage]);
 
   return (
     <div className="userDetails">
@@ -139,42 +138,46 @@ export default function UsersDetails() {
                   </tr>
                 );
               })}
-        <div className="paginate">
-        <div className="showing">
-          <p>Showing</p>
-          <select name="" id=""  onChange={()=>{handleItemsPerPage(value)}} >
-          <option value='10'>10</option>
-            <option value='10'>20</option>
-          </select>
-          <p>out of 100</p>
-        </div>
+              <div className="paginate">
+                <div className="showing">
+                  <p>Showing</p>
+                  <select
+                    name=""
+                    id=""
+                    onChange={(e) => {
+                      handleItemsPerPage(e.target.value);
+                    }}
+                  >
+                    <option value="10">10</option>
+                    <option value="20">20</option>
+                    <option value="30">30</option>
+                  </select>
+                  <p>out of 100</p>
+                </div>
 
-        <ReactPaginate
-        breakLabel="..."
-        nextLabel=">"
-        onPageChange={handlePageClick}
-        pageRangeDisplayed={5}
-        pageCount={pageCount}
-        previousLabel="<"
-        renderOnZeroPageCount={null}
-        className="pagination"
-        pageClassName="page-num"
-        previousLinkClassName="page-num"
-        nextLinkCLassName="page-num"
-        nextClassName="page-num"
-        activeLinkClassName="active"
-        disabledClassName="disable-pagination"
-      />
-          </div>      
-     
+                <ReactPaginate
+                  breakLabel="..."
+                  nextLabel=">"
+                  onPageChange={handlePageClick}
+                  pageRangeDisplayed={5}
+                  pageCount={pageCount}
+                  previousLabel="<"
+                  renderOnZeroPageCount={null}
+                  className="pagination"
+                  pageClassName="page-num"
+                  previousLinkClassName="page-num"
+                  nextLinkCLassName="page-num"
+                  nextClassName="page-num"
+                  activeLinkClassName="active"
+                  disabledClassName="disable-pagination"
+                />
+              </div>
             </div>
-
-            
           )}
         </tbody>
       </table>
 
-{/* 
+      {/* 
       <div>
         <p>Showing</p> 
         <select defaultValue={10} name="" id="" onChange={(e)=>{handleItemsPerPage(e.target.value)}}> 
